@@ -1,3 +1,9 @@
+
+⚠️**Warning: Proof of Concept for Educational Purposes**⚠️
+
+This README is intended solely for educational purposes and should not be used in production environments or for any commercial applications. It represents a proof of concept, and as such, it may contain incomplete, experimental, or potentially unstable code.
+ 
+
 # Pi-Parasite
 ### Intro:
 The purpose of these is the use of a Raspberry Pi or similar device as a mole or parasite in a network and have persistent aces to it.
