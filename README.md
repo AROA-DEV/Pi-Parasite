@@ -1,7 +1,7 @@
 
 ⚠️**Warning: Proof of Concept for Educational Purposes**⚠️
 
-This README is intended solely for educational purposes and should not be used in production environments or for any commercial applications. It represents a proof of concept, and as such, it may contain incomplete, experimental, or potentially unstable code.
+This project is intended solely for educational purposes and should not be used in production environments or for any commercial applications. It represents a proof of concept, and as such, it may contain incomplete, experimental, or potentially unstable code.
  
 
 # Pi-Parasite
