@@ -40,7 +40,7 @@ We use a series of  opensource tools to check for variety of attacks vectors, su
 - **ClamAV**
 you can install them by following these: [[Connection Security/Debian server security checks tools|Debian server security checks tools]].
 we have a script that will run the tools and save their output log, [security-scan.sh](https://raw.githubusercontent.com/AROA-DEV/Automator/Beta-testing/Dedicated/Debian/Log/security-scan.sh) for the raw code, these script is runed with crontab. 
-you might also want to consider settings up [[Connection Security/ufw firewall|ufw firewall]] firewall, and [[Connection Security/fail2ban|fail2ban]]
+you might also want to consider settings up [ufw firewall](https://github.com/AROA-DEV/Pi-Parasite/blob/main/Connection%20Security/ufw%20firewall.md) firewall, and [fail2ban](https://github.com/AROA-DEV/Pi-Parasite/blob/main/Connection%20Security/fail2ban.md)
 
 #### 1. **Install the SSH Client:**
    Ensure that your Raspberry Pi has the SSH client installed. If it's not installed, open a terminal and run the following commands:
@@ -269,7 +269,7 @@ We use a series of  opensource tools to check for variety of attacks vectors, su
 - **ClamAV**
 you can install them by following these: [[Connection Security/Debian server security checks tools|Debian server security checks tools]].
 we have a script that will run the tools and save their output log, [security-scan.sh](https://raw.githubusercontent.com/AROA-DEV/Automator/Beta-testing/Dedicated/Debian/Log/security-scan.sh) for the raw code, these script is runed with crontab. 
-you might also want to consider settings up [[Connection Security/ufw firewall|ufw firewall]] firewall, and [[Connection Security/fail2ban|fail2ban]]
+you might also want to consider settings up [ufw firewall](https://github.com/AROA-DEV/Pi-Parasite/blob/main/Connection%20Security/ufw%20firewall.md) firewall, and [fail2ban](https://github.com/AROA-DEV/Pi-Parasite/blob/main/Connection%20Security/fail2ban.md)
 
 ## **On PC1 (attacker):**
 **Accessing the Raspberry Pi from PC1:**
