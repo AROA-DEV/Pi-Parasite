@@ -38,7 +38,7 @@ We use a series of  opensource tools to check for variety of attacks vectors, su
 - **psad**
 - **debsecan**
 - **ClamAV**
-you can install them by following these: [[Connection Security/Debian server security checks tools|Debian server security checks tools]].
+you can install them by following these: [Debian server security checks tools](https://github.com/AROA-DEV/Pi-Parasite/blob/main/Connection%20Security/Debian%20server%20security%20checks%20tools.md).
 we have a script that will run the tools and save their output log, [security-scan.sh](https://raw.githubusercontent.com/AROA-DEV/Automator/Beta-testing/Dedicated/Debian/Log/security-scan.sh) for the raw code, these script is runed with crontab. 
 you might also want to consider settings up [ufw firewall](https://github.com/AROA-DEV/Pi-Parasite/blob/main/Connection%20Security/ufw%20firewall.md) firewall, and [fail2ban](https://github.com/AROA-DEV/Pi-Parasite/blob/main/Connection%20Security/fail2ban.md)
 
@@ -68,76 +68,8 @@ To create a script that automatically checks for internet access, establishes an
 nano auto_ssh_tunnel.sh
 ```
  
-2. Add the following content to the `auto_ssh_tunnel.sh` script:
+2. Add the following content to the `auto_ssh_tunnel.sh` script:[auto_ssh_tunnel.sh](https://github.com/AROA-DEV/Pi-Parasite/blob/main/Code/auto_ssh_tunnel.sh)
 
-```shell
-#!/bin/bash
-# Define ANSI color escape codes
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-NC='\033[0m' # No Color
-
-# Define variables for the jump hosts
-SSH_USER="user"  # Replace with your username
-SSH_KEY="/path/to/your/ssh/key"  # Replace with the path to your SSH private key file
-
-# Define the jump hosts manually in the desired order
-JUMP_HOST_1="hostname1"
-JUMP_HOST_2="hostname2"
-JUMP_HOST_3="hostname3"
-# Add more jump hosts as needed
-
-# Define the final destination host and port
-DEST_HOST="final-destination-hostname"
-DEST_PORT="22"  # Replace with the SSH port on the final destination host
-
-# Function to check for internet connectivity
-check_internet() {
-  if ping -c 1 google.com > /dev/null 2>&1; then
-    return 0
-  else
-    return 1
-  fi
-}
-
-# Function to establish the SSH tunnel through manually defined jump hosts
-establish_tunnel() {
-  # Use the -J option to specify the manually defined jump hosts
-  if ssh -i "$SSH_KEY" -N -L 2222:localhost:2222 -J "$JUMP_HOST_1,$JUMP_HOST_2,$JUMP_HOST_3"; then
-    return 0
-  else
-    return 1
-  fi
-}
-
-# Function to print colored messages
-print_message() {
-  local color="$1"
-  local message="$2"
-  echo -e "${color}${message}${NC}"
-}
-
-# Main loop
-while true; do
-  if check_internet; then
-    print_message "${GREEN}" "Internet is up."
-    if ! pgrep -f "ssh.*-L 2222:localhost:2222" > /dev/null; then
-      print_message "${RED}" "SSH tunnel not running. Establishing tunnel..."
-      if establish_tunnel; then
-        print_message "${GREEN}" "SSH tunnel established successfully."
-      else
-        print_message "${RED}" "Failed to establish SSH tunnel."
-      fi
-      sleep 5
-    else
-      print_message "${GREEN}" "SSH tunnel is already running."
-    fi
-  else
-    print_message "${RED}" "No internet access. Waiting..."
-  fi
-  sleep 60  # Check every 60 seconds
-done
-```
 
 3. Make the script executable:
 ```shell
@@ -267,7 +199,7 @@ We use a series of  opensource tools to check for variety of attacks vectors, su
 - **psad**
 - **debsecan**
 - **ClamAV**
-you can install them by following these: [[Connection Security/Debian server security checks tools|Debian server security checks tools]].
+you can install them by following these: [Debian server security checks tools](https://github.com/AROA-DEV/Pi-Parasite/blob/main/Connection%20Security/Debian%20server%20security%20checks%20tools.md).
 we have a script that will run the tools and save their output log, [security-scan.sh](https://raw.githubusercontent.com/AROA-DEV/Automator/Beta-testing/Dedicated/Debian/Log/security-scan.sh) for the raw code, these script is runed with crontab. 
 you might also want to consider settings up [ufw firewall](https://github.com/AROA-DEV/Pi-Parasite/blob/main/Connection%20Security/ufw%20firewall.md) firewall, and [fail2ban](https://github.com/AROA-DEV/Pi-Parasite/blob/main/Connection%20Security/fail2ban.md)
 
